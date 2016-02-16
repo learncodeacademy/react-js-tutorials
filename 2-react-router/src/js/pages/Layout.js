@@ -6,15 +6,15 @@ import Nav from "../components/layout/Nav";
 
 export default class Layout extends React.Component {
   render() {
-    const { history, location } = this.props;
+    const { location } = this.props;
     const containerStyle = {
       marginTop: "60px"
     };
-
+    console.log("layout");
     return (
       <div>
 
-        <Nav {...{history, location}} />
+        <Nav location={location} />
 
         <div class="container" style={containerStyle}>
           <div class="row">
