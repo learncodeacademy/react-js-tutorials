@@ -21,7 +21,7 @@ const reducer = (state=initialState, action) => {
       return {...state, fetching: false, error: action.payload}
       break;
     }
-    case "FETCH_USERS_ FULFILLED": {
+    case "FETCH_USERS_FULFILLED": {
       return {
         ...state,
         fetching: false,
