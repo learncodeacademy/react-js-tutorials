@@ -15,7 +15,7 @@ export default class Nav extends React.Component {
   }
 
   render() {
-    const { location } = this.props;
+    // const { location } = this.props;
     const { collapsed } = this.state;
     // const featuredClass = location.pathname === "/" ? "active" : "";
     // const archivesClass = location.pathname.match(/^\/archives/) ? "active" : "";
@@ -35,14 +35,14 @@ export default class Nav extends React.Component {
           </div>
           <div class={"navbar-collapse " + navClass} id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li activeClassName="active" onlyActiveOnIndex={true}>
-                <IndexLink to="/" onClick={this.toggleCollapse.bind(this)}>Featured</IndexLink>
+              <li>
+                <IndexLink to="/" activeClassName="active" onClick={this.toggleCollapse.bind(this)}>Featured</IndexLink>
               </li>
-              <li activeClassName="active">
-                <Link to="archives" onClick={this.toggleCollapse.bind(this)}>Archives</Link>
+              <li>
+                <Link to="archives" activeClassName="active" onClick={this.toggleCollapse.bind(this)}>Archives</Link>
               </li>
-              <li activeClassName="active">
-                <Link to="settings" onClick={this.toggleCollapse.bind(this)}>Settings</Link>
+              <li>
+                <Link to="settings" activeClassName="active" onClick={this.toggleCollapse.bind(this)}>Settings</Link>
               </li>
             </ul>
           </div>
