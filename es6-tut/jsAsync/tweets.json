@@ -1,0 +1,30 @@
+[
+  {
+   "id": 1,
+   "tweet": "OMG, worst day ever, my BF @BobbyBoo dumped me",
+   "usersMentioned": [
+     {
+      "id": 10,
+      "username": "BobbyBoo"
+     }
+    ]
+  },
+  {
+   "id": 2,
+   "tweet": "OMG, best day ever, my BF came back to me"
+  },
+  {
+   "id": 3,
+   "tweet": "OMG, worst day ever, just don't ask"
+  },
+  {
+   "id": 4,
+   "tweet": "@BobbyBoo OMG...just OMG!",
+   "usersMentioned": [
+     {
+      "id": 10,
+      "username": "BobbyBoo"
+     }
+    ]
+  }
+]
