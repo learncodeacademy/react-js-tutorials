@@ -12,6 +12,7 @@ module.exports = {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
+        query: { presets: ['es2015', 'react'], plugins: ["transform-decorators-legacy", "transform-class-properties"] }
       },
       { test: /\.css$/, loader: "style-loader!css-loader" },
     ]
