@@ -5,7 +5,7 @@ import * as TodoActions from "../actions/TodoActions";
 import TodoStore from "../stores/TodoStore";
 
 
-export default class Featured extends React.Component {
+export default class Todos extends React.Component {
   constructor() {
     super();
     this.getTodos = this.getTodos.bind(this);
