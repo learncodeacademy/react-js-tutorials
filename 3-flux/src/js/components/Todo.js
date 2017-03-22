@@ -7,12 +7,10 @@ export default class Todo extends React.Component {
     super();
   }
 
-// Anna Code Start
-  removeTodo(e) {
+  deleteTodo(e) {
     TodoActions.deleteTodo(this.props.id);
   }
-// Anna Code End
-  // const icon = complete ? "\u2714" : "\u2716"
+
   render() {
     const { complete, edit, text } = this.props;
 
@@ -22,6 +20,11 @@ export default class Todo extends React.Component {
       maxWidth: "50px",
       padding: "5px"
     };
+
+    const checkboxStyle = {
+      maxWidth: "50px",
+      padding: "10px"
+    }
 
     if (edit) {
       return (
@@ -33,8 +36,8 @@ export default class Todo extends React.Component {
 
     return (
       <li>
-        <span><img style={iconStyle} src={icon} /></span>
-        <span onClick={this.removeTodo.bind(this)}><img style={iconStyle} src={trash} /></span>
+        <span><img style={checkboxStyle} src={icon} /></span>
+        <span onClick={this.deleteTodo.bind(this)}><img style={iconStyle} src={trash} /></span>
         <span>{text}</span>
       </li>
     );
