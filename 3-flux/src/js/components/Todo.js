@@ -1,8 +1,16 @@
 import React from "react";
 
+import * as TodoActions from "../actions/TodoActions";
+
 export default class Todo extends React.Component {
   constructor(props) {
     super();
+  }
+
+  removeTodo(e) {
+    // console.log(this.props.id);
+    //REMOVE BY ID
+    TodoActions.deleteTodo(this.props.id);
   }
 
   render() {
@@ -20,8 +28,8 @@ export default class Todo extends React.Component {
 
     return (
       <li>
+        <button onClick={this.removeTodo.bind(this)}>{icon}</button>
         <span>{text}</span>
-        <span>{icon}</span>
       </li>
     );
   }

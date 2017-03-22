@@ -11,6 +11,7 @@ export default class Todos extends React.Component {
     this.getTodos = this.getTodos.bind(this);
     this.state = {
       todos: TodoStore.getAll(),
+      newTodo: ""
     };
   }
 
@@ -32,6 +33,18 @@ export default class Todos extends React.Component {
     TodoActions.reloadTodos();
   }
 
+  // Start Anna Code
+  addTodo(e) {
+    e.preventDefault();
+    TodoActions.createTodo(this.state.newTodo);
+    this.setState({newTodo: ""});
+  }
+
+  handleChange(e) {
+    this.setState({newTodo: e.target.value});
+  }
+  // End Anna Code
+
   render() {
     const { todos } = this.state;
 
@@ -43,6 +56,10 @@ export default class Todos extends React.Component {
       <div>
         <button onClick={this.reloadTodos.bind(this)}>Reload!</button>
         <h1>Todos</h1>
+        <form>
+          <input type="text" value={this.state.newTodo} onChange={this.handleChange.bind(this)}/>
+          <button onClick={this.addTodo.bind(this)}>Add Todo</button>
+        </form>
         <ul>{TodoComponents}</ul>
       </div>
     );
