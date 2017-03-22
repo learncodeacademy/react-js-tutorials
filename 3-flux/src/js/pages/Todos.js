@@ -52,6 +52,11 @@ export default class Todos extends React.Component {
         return <Todo key={todo.id} {...todo}/>;
     });
 
+    const customUl = {
+      listStyle: "none",
+      paddingLeft: "0"
+    };
+
     return (
       <div>
         <button onClick={this.reloadTodos.bind(this)}>Reload!</button>
@@ -60,7 +65,7 @@ export default class Todos extends React.Component {
           <input type="text" value={this.state.newTodo} onChange={this.handleChange.bind(this)}/>
           <button onClick={this.addTodo.bind(this)}>Add Todo</button>
         </form>
-        <ul>{TodoComponents}</ul>
+        <ul style={customUl}>{TodoComponents}</ul>
       </div>
     );
   }
