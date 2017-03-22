@@ -9,7 +9,7 @@ class TodoStore extends EventEmitter {
       {
         id: 113464613,
         text: "Go Shopping",
-        complete: false
+        complete: true
       },
       {
         id: 235684679,
@@ -34,7 +34,7 @@ class TodoStore extends EventEmitter {
     this.todos = this.todos.filter((entry) => {
       return entry.id !== id;
     });
-    this.emit("change");
+    // this.emit("change");
   }
 
   getAll() {

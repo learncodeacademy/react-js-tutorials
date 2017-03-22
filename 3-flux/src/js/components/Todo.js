@@ -7,16 +7,21 @@ export default class Todo extends React.Component {
     super();
   }
 
+// Anna Code Start
   removeTodo(e) {
-    // console.log(this.props.id);
-    //REMOVE BY ID
     TodoActions.deleteTodo(this.props.id);
   }
-
+// Anna Code End
+  // const icon = complete ? "\u2714" : "\u2716"
   render() {
     const { complete, edit, text } = this.props;
 
-    const icon = complete ? "\u2714" : "\u2716"
+    const icon = complete ? "../../assets/icon_done.svg" : "../../assets/icon_not_done.svg";
+    const trash = "../../assets/icon_trash.svg";
+    const iconStyle = {
+      maxWidth: "50px",
+      padding: "5px"
+    };
 
     if (edit) {
       return (
@@ -28,7 +33,8 @@ export default class Todo extends React.Component {
 
     return (
       <li>
-        <button onClick={this.removeTodo.bind(this)}>{icon}</button>
+        <span><img style={iconStyle} src={icon} /></span>
+        <span onClick={this.removeTodo.bind(this)}><img style={iconStyle} src={trash} /></span>
         <span>{text}</span>
       </li>
     );
