@@ -27,7 +27,7 @@ class TodoStore extends EventEmitter {
       text,
       complete: false,
     });
-    // this.emit("change");
+    this.emit("change");
   }
 
   deleteTodo(id) {
