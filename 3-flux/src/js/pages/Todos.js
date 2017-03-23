@@ -52,7 +52,7 @@ export default class Todos extends React.Component {
 
     return (
       <div>
-        <h1 style={headerStyling}>A List of things To Do</h1>
+        <h1 style={headerStyling}>To Do</h1>
         <NewTodo />
         <ul style={customUl}>{TodoComponents}</ul>
       </div>

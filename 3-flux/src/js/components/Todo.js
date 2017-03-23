@@ -16,7 +16,8 @@ export default class Todo extends React.Component {
 
     const icon = complete ? "../../assets/icon_done.svg" : "../../assets/icon_not_done.svg";
     const trash = "../../assets/icon_trash.svg";
-    const iconStyle = {
+
+    const trashStyle = {
       maxWidth: "50px",
       padding: "5px"
     };
@@ -24,7 +25,7 @@ export default class Todo extends React.Component {
     const checkboxStyle = {
       maxWidth: "50px",
       padding: "10px"
-    }
+    };
 
     if (edit) {
       return (
@@ -37,7 +38,7 @@ export default class Todo extends React.Component {
     return (
       <li>
         <span><img style={checkboxStyle} src={icon} /></span>
-        <span onClick={this.deleteTodo.bind(this)}><img style={iconStyle} src={trash} /></span>
+        <span onClick={this.deleteTodo.bind(this)}><img style={trashStyle} src={trash} /></span>
         <span>{text}</span>
       </li>
     );
