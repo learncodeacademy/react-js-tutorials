@@ -27,7 +27,19 @@ export default class Layout extends React.Component {
       return <button onClick={this.fetchTweets.bind(this)}>load tweets</button>
     }
 
-    const mappedTweets = tweets.map(tweet => <li>{tweet.text}</li>)
+    const mappedTweets = tweets.map(tweet => {
+      const textValue = tweet.text;
+      let tweetText = "";
+      if(typeof textValue === 'object'){
+        tweetText = textValue.tweet;
+      }
+      else{
+        tweetText = textValue;
+      }
+      return (
+        tweetText ? <li key={tweet.id}>{tweetText}</li> : null
+      );
+    })
 
     return <div>
       <h1>{user.name}</h1>
