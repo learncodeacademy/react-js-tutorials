@@ -1,4 +1,4 @@
-import Tweet from "../entities/tweetEntity"
+import Tweets from "../factories/TweetFactory"
 
 export default function reducer(state={
     tweets: [],
@@ -19,7 +19,7 @@ export default function reducer(state={
           ...state,
           fetching: false,
           fetched: true,
-          tweets: action.payload.map(value => new Tweet(value)),
+          tweets: new Tweets(action.payload).getAll(),
         }
       }
       case "ADD_TWEET": {
