@@ -1,3 +1,5 @@
+import Tweet from "../entities/tweetEntity"
+
 export default function reducer(state={
     tweets: [],
     fetching: false,
@@ -17,7 +19,7 @@ export default function reducer(state={
           ...state,
           fetching: false,
           fetched: true,
-          tweets: action.payload,
+          tweets: action.payload.map(value => new Tweet(value)),
         }
       }
       case "ADD_TWEET": {
