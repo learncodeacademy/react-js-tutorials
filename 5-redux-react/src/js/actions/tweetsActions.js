@@ -7,18 +7,18 @@ export function fetchTweets() {
     if (!Array.isArray(data)) return [];
     return data.filter(value => !!value).reduce((merge, value) => {
       if (value.myArray && Array.isArray(value.myArray)) {
-        merge = merge.concat(value.myArray);
+        merge = merge.concat(value.myArray)
       }
-      return merge;
-    }, []);
+      return merge
+    }, [])
   }
 
   function buildTweetsUrl(user) {
-    return `http://rest.learncode.academy/api/${user}/tweets`;
+    return `http://rest.learncode.academy/api/${user}/tweets`
   }
 
   function requestTweets(url, done) {
-    axios.get(url).then(response => done(null, response)).catch(err => done(err, null));
+    axios.get(url).then(response => done(null, response)).catch(err => done(err, null))
   }
   
   return function(dispatch) {
@@ -30,9 +30,9 @@ export function fetchTweets() {
     */
     requestTweets(buildTweetsUrl(TWEETS_USER), (err, response) => {
       if (err || !response && !response.data || Array.isArray(response.data) && !response.data.length) {
-        return dispatch({type: "FETCH_TWEETS_REJECTED", payload: err || new Error('Tweets are empty')});
+        return dispatch({type: "FETCH_TWEETS_REJECTED", payload: err || new Error('Tweets are empty')})
       }
-      return dispatch({type: "FETCH_TWEETS_FULFILLED", payload: filterPayloadDataToReturn(response.data)});
+      return dispatch({type: "FETCH_TWEETS_FULFILLED", payload: filterPayloadDataToReturn(response.data)})
     })
   }
 }
