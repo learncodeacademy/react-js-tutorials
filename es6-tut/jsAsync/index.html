@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ASync </title>
+  <!-- <link data-require="bootstrap-css@3.1.1" data-semver="3.1.1" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" /> -->
+  <script data-require="jquery@2.1.1" data-semver="2.1.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script data-require="bootstrap@*" data-semver="3.1.1" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script data-require="traceur@*" data-semver="0.0.0-20140302" src="https://traceur-compiler.googlecode.com/git/bin/traceur.js"></script>
+  <script data-require="traceur@*" data-semver="0.0.0-20140302" src="https://traceur-compiler.googlecode.com/git/src/bootstrap.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/bluebird/1.2.2/bluebird.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Javascript ASync Fun!</h1>
+  <ul id="status"></ul>
+
+  <h4>profile</h4>
+  <pre id="profile-pre"></pre>
+  <h4>tweets</h4>
+  <pre id="tweets-pre"></pre>
+  <h4>friend</h4>
+  <pre id="friend-pre"></pre>
+
+  <!-- different ways of doing the same thing -->
+  <script src="callbacks.js"></script>
+  <!-- <script src="clean-callbacks.js"></script> -->
+  <!-- <script src="promises.js"></script> -->
+  <!-- <script src="generators.js" type="module"></script> -->
+</body>
+</html>
