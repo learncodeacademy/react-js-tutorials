@@ -2,6 +2,8 @@ import axios from "axios";
 
 export function fetchTweets() {
   return function(dispatch) {
+    dispatch({type: "FETCH_TWEETS"});
+    
     /* 
       http://rest.learncode.academy is a public test server, so another user's experimentation can break your tests
       If you get console errors due to bad data:
