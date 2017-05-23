@@ -1,3 +1,5 @@
+import Tweets from "../factories/TweetFactory"
+
 export default function reducer(state={
     tweets: [],
     fetching: false,
@@ -17,7 +19,7 @@ export default function reducer(state={
           ...state,
           fetching: false,
           fetched: true,
-          tweets: action.payload,
+          tweets: new Tweets(action.payload).getAll(),
         }
       }
       case "ADD_TWEET": {

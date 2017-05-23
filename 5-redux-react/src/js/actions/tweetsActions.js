@@ -1,6 +1,26 @@
 import axios from "axios";
 
 export function fetchTweets() {
+  const TWEETS_USER = 'learncode';
+
+  function filterPayloadDataToReturn(data) {
+    if (!Array.isArray(data)) return [];
+    return data.filter(value => !!value).reduce((merge, value) => {
+      if (value.myArray && Array.isArray(value.myArray)) {
+        merge = merge.concat(value.myArray)
+      }
+      return merge
+    }, [])
+  }
+
+  function buildTweetsUrl(user) {
+    return `http://rest.learncode.academy/api/${user}/tweets`
+  }
+
+  function requestTweets(url, done) {
+    axios.get(url).then(response => done(null, response)).catch(err => done(err, null))
+  }
+  
   return function(dispatch) {
     dispatch({type: "FETCH_TWEETS"});
     
@@ -10,13 +30,12 @@ export function fetchTweets() {
       - change "reacttest" below to any other username
       - post some tweets to http://rest.learncode.academy/api/yourusername/tweets
     */
-    axios.get("http://rest.learncode.academy/api/reacttest/tweets")
-      .then((response) => {
-        dispatch({type: "FETCH_TWEETS_FULFILLED", payload: response.data})
-      })
-      .catch((err) => {
-        dispatch({type: "FETCH_TWEETS_REJECTED", payload: err})
-      })
+    requestTweets(buildTweetsUrl(TWEETS_USER), (err, response) => {
+      if (err || !response && !response.data || Array.isArray(response.data) && !response.data.length) {
+        return dispatch({type: "FETCH_TWEETS_REJECTED", payload: err || new Error('Tweets are empty')})
+      }
+      return dispatch({type: "FETCH_TWEETS_FULFILLED", payload: filterPayloadDataToReturn(response.data)})
+    })
   }
 }
 
