@@ -9,7 +9,7 @@ class TodoStore extends EventEmitter {
       {
         id: 113464613,
         text: "Go Shopping",
-        complete: false
+        complete: true
       },
       {
         id: 235684679,
@@ -27,8 +27,14 @@ class TodoStore extends EventEmitter {
       text,
       complete: false,
     });
-
     this.emit("change");
+  }
+
+  deleteTodo(id) {
+    this.todos = this.todos.filter((entry) => {
+      return entry.id !== id;
+    });
+    // this.emit("change");
   }
 
   getAll() {
@@ -39,10 +45,16 @@ class TodoStore extends EventEmitter {
     switch(action.type) {
       case "CREATE_TODO": {
         this.createTodo(action.text);
+        this.emit("change");
         break;
       }
       case "RECEIVE_TODOS": {
         this.todos = action.todos;
+        this.emit("change");
+        break;
+      }
+      case "DELETE_TODO": {
+        this.deleteTodo(action.id);
         this.emit("change");
         break;
       }

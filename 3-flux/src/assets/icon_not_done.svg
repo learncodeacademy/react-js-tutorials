@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150.23 150.23">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fde3bc;
+      }
+
+      .cls-2 {
+        fill: #faaf41;
+      }
+    </style>
+  </defs>
+  <title>icon_not_done</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <g>
+        <rect class="cls-1" x="4" y="4" width="142.23" height="142.23" rx="6" ry="6"/>
+        <path class="cls-2" d="M140.23,8a2,2,0,0,1,2,2V140.23a2,2,0,0,1-2,2H10a2,2,0,0,1-2-2V10a2,2,0,0,1,2-2H140.23m0-8H10A10,10,0,0,0,0,10V140.23a10,10,0,0,0,10,10H140.23a10,10,0,0,0,10-10V10a10,10,0,0,0-10-10Z"/>
+      </g>
+    </g>
+  </g>
+</svg>
