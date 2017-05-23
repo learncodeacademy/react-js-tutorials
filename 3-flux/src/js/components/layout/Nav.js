@@ -22,8 +22,13 @@ export default class Nav extends React.Component {
     const settingsClass = location.pathname.match(/^\/settings/) ? "active" : "";
     const navClass = collapsed ? "collapse" : "";
 
+    const navStyle = {
+      backgroundColor: "#3C1053",
+      backgroundImage: "none"
+    };
+
     return (
-      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <nav style={navStyle} class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" onClick={this.toggleCollapse.bind(this)} >
