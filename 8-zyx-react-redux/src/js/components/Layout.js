@@ -1,37 +1,25 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import { fetchUser } from "../actions/userActions"
-import { fetchTweets } from "../actions/tweetsActions"
+import { fetchTopRatedMovies } from "../actions/imdbActions"
 
 @connect((store) => {
   return {
-    user: store.user.user,
-    userFetched: store.user.fetched,
-    tweets: store.tweets.tweets,
+    topRatedMovies: store.imdb.topRatedMovies,
+    fetchedTopRatedMovies: store.imdb.fetchedTopRatedMovies
   };
 })
 export default class Layout extends React.Component {
   componentWillMount() {
-    this.props.dispatch(fetchUser())
-  }
-
-  fetchTweets() {
-    this.props.dispatch(fetchTweets())
+    this.props.dispatch(fetchTopRatedMovies())
   }
 
   render() {
-    const { user, tweets } = this.props;
-
-    if (!tweets.length) {
-      return <button onClick={this.fetchTweets.bind(this)}>load tweets</button>
-    }
-
-    const mappedTweets = tweets.map(tweet => <li key={tweet.id}>{tweet.text}</li>)
-
+    const {topRatedMovies} = this.props;
+    const mappedTopRatedMovies = topRatedMovies.map(topRatedMovie => <li>{topRatedMovie.title}</li>)
     return <div>
-      <h1>{user.name}</h1>
-      <ul>{mappedTweets}</ul>
+      <h1>Top Rated Movies</h1>
+      <ul>{mappedTopRatedMovies}</ul>
     </div>
   }
 }
